@@ -29,15 +29,15 @@ jobs:
       # 🐳 Build & Push Images
       - name: Build & Push
         run: |
-          docker build -t auth-service ./auth-service
+          docker build -t auth-service ./services/auth-service
           docker tag auth-service ${{ secrets.ECR_URI }}/auth-service:latest
           docker push ${{ secrets.ECR_URI }}/auth-service:latest
 
-          docker build -t account-service ./account-service
+          docker build -t account-service ./services/account-service
           docker tag account-service ${{ secrets.ECR_URI }}/account-service:latest
           docker push ${{ secrets.ECR_URI }}/account-service:latest
 
-          docker build -t transaction-service ./transaction-service
+          docker build -t transaction-service ./services/transaction-service
           docker tag transaction-service ${{ secrets.ECR_URI }}/transaction-service:latest
           docker push ${{ secrets.ECR_URI }}/transaction-service:latest
 
