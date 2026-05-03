@@ -23,7 +23,7 @@ jobs:
       # 🔐 Login to ECR
       - name: Login to ECR
         run: |
-          aws ecr get-login-password --region ap-south-1 | \
+          aws ecr get-login-password --region us-east-1 | \
           docker login --username AWS --password-stdin ${{ secrets.ECR_URI }}
 
       # 🐳 Build & Push Images
